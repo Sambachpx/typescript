@@ -17,19 +17,23 @@ function ValidEmail(email: string) {
 
   //TODO: voir pour verifier avant/après @
 
-  /* if (.length < 3) {
+  const coupe = email.split("@");
+  console.log(coupe);
+
+  if (coupe[0].length < 3) {
     return false;
   }
 
-  /* if (!.includes(".")) {
+  if (!coupe[1].includes(".")) {
     return false;
   }
-  */
 
   return true;
 }
 
-//console.log(isValidEmail("testsss@email.com"));
-//console.log(isValidEmail("ab@email.com"));
-//console.log(isValidEmail("test@email"));
-//console.log(isValidEmail("test@email.c"));
+ValidEmail("to@test.com");
+
+console.log(ValidEmail("testsss@email.com"));
+console.log(ValidEmail("ab@email.com"));
+console.log(ValidEmail("test@email"));
+console.log(ValidEmail("test@email.c"));
