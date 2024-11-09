@@ -18,7 +18,7 @@ type Success<T> = {
   test: T;
 };
 
-type Error = {
+type error = {
   // TODO: voir pour le bug
   status: "erreur";
   message: string;
@@ -33,7 +33,7 @@ function successResponse<T>(props: T): Success<T> {
   };
 }
 
-function errorResponse(message: string): Error {
+function errorResponse(message: string): error {
   return {
     status: "erreur",
     message: message,
