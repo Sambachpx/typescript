@@ -17,13 +17,17 @@ interface Book {
 interface Library {
   books: Book[];
   addBook: (book: Book) => void;
-  deleteBook: (title: string) => void;
+  removeBook: (title: string) => void;
 }
 
-class librarysystem implements Library {
+class LibrarySystem implements Library {
   books: Book[] = [];
 
-  addBook(book: Book): void {}
+  addBook(book: Book): void {
+    this.books.push(book);
+  }
 
-  removeBook(title: string): void {}
+  removeBook(title: string): void {
+    // if
+  }
 }

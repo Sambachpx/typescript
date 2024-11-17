@@ -5,9 +5,6 @@ Create a generic type for API responses:
 - Error response with message
 Include utility functions to handle both cases
 */
-
-// Write your solution here
-
 interface User {
   id: number;
   name: string;
@@ -15,29 +12,40 @@ interface User {
 
 type Success<T> = {
   status: "success";
-  test: T;
+  data: T;
 };
 
-type error = {
-  // TODO: voir pour le bug
-  status: "erreur";
+type ApiError = {
+  status: "error";
   message: string;
 };
 
-type ApiResponse<T> = Success<T> | Error;
+type ApiResponse<T> = Success<T> | ApiError;
 
-function successResponse<T>(props: T): Success<T> {
+function successResponse<T>(data: T): Success<T> {
   return {
     status: "success",
-    test: props,
+    data: data,
   };
 }
 
-function errorResponse(message: string): error {
+function errorResponse(message: string): ApiError {
   return {
-    status: "erreur",
+    status: "error",
     message: message,
   };
 }
 
-// TODO: faire le cas ou ca fonctionne ou non / réponse API
+function response<T>(response: ApiResponse<T>): void {
+  if (response.status === "success") {
+    console.log(response.data);
+  } else {
+    console.log(response.message);
+  }
+}
+
+function test() {
+  const user: User = { id: 1, name: "Samba" };
+  const successResult = successResponse(user);
+  response(successResult);
+}
