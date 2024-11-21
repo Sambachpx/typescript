@@ -7,3 +7,11 @@ Handle empty arrays
 */
 
 // Write your solution here
+
+function sum(numbers: number[]) {
+  if (numbers.length === 0) {
+    return;
+  }
+}
+
+// TODO: Continue

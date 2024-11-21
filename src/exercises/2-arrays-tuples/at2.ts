@@ -7,3 +7,5 @@ Create a system using tuples to:
 */
 
 // Write your solution here
+
+type Point = [number, number];
