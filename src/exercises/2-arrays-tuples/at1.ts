@@ -12,6 +12,27 @@ function sum(numbers: number[]) {
   if (numbers.length === 0) {
     return;
   }
+
+  let totalSum = numbers.reduce((accumulator, currentNumber) => {
+    return accumulator + currentNumber;
+  });
+
+  return totalSum;
 }
 
-// TODO: Continue
+function average(numbers: number[]) {
+  if (numbers.length === 0) {
+    return;
+  }
+
+  let totalSum = sum(numbers);
+
+  if (totalSum === undefined) {
+    return;
+  }
+
+  let averageValue = totalSum / numbers.length;
+
+  return averageValue;
+}
+// TODO: Continue| test
